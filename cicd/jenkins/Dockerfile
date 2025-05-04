@@ -4,11 +4,11 @@ FROM jenkins/jenkins:lts
 # Tắt wizard cài đặt
 ENV JAVA_OPTS=-Djenkins.install.runSetupWizard=false
 # Copy và cài plugin
-COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY /cicd/jenkins/plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
 # Copy và cấu hình JCasC
-COPY jenkins.yaml /usr/share/jenkins/ref/jenkins.yaml
+COPY /cicd/jenkins/jenkins.yaml /usr/share/jenkins/ref/jenkins.yaml
 ENV CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/jenkins.yaml
 
 # Cài Node.js và thiết lập timezone
