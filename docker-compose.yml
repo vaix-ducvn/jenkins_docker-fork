@@ -2,7 +2,7 @@ services:
   jenkins_v1:
     build:
       context: .
-      dockerfile: cicd/jenkins/Dockerfile
+      dockerfile: docker/jenkins/Dockerfile
     ports:
       - '8080:8080'
       - '50000:50000'
@@ -21,12 +21,12 @@ services:
   nginx_v1:
     build:
       context: .
-      dockerfile: cicd/nginx/Dockerfile
+      dockerfile: docker/nginx/Dockerfile
     ports:
       - '80:80'
     volumes:
       - app_dist:/usr/share/nginx/html
-      - ./cicd/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - jenkins_v1
     networks:

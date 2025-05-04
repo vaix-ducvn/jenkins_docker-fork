@@ -7,7 +7,7 @@ RUN apk add --no-cache tzdata && \
     echo "Asia/Ho_Chi_Minh" > /etc/timezone
 
 # Copy file cấu hình Nginx
-COPY cicd/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
