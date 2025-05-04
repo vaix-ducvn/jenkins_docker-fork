@@ -44,7 +44,7 @@ pipeline {
 - Thời gian: ${currentBuild.durationString}
 - Commit: `${commitMsg}`
 - Xem chi tiết: ${env.BUILD_URL}""",
-                          teamDomain: 'vaix-vn',
+                          teamDomain: 'testing-chat-bothq',
                           tokenCredentialId: 'slack-token'
             }
         }
@@ -57,7 +57,7 @@ pipeline {
 - Thời gian: ${currentBuild.durationString}
 - Commit: `${commitMsg}`
 - Xem log chi tiết: ${env.BUILD_URL}""",
-                          teamDomain: 'vaix-vn',
+                          teamDomain: 'testing-chat-bothq',
                           tokenCredentialId: 'slack-token'
             }
         }

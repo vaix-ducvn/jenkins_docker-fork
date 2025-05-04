@@ -1,0 +1,26 @@
+services:
+  jenkins_v1:
+    build:
+      context: .
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - app_dist:/var/jenkins_home/dist
+    environment:
+      #Djenkins.install.runSetupWizard=false dùng để bỏ qua bước setup các plugin
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false -Duser.timezone=Asia/Ho_Chi_Minh
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/jenkins.yaml
+    env_file:
+      - .env
+    networks:
+      - ci_network
+
+volumes:
+  jenkins_home:
+  app_dist:
+
+networks:
+  ci_network:
+    driver: bridge
