@@ -37,7 +37,7 @@ pipeline {
         success {
             script {
                 def commitMsg = sh(script: "git log -n 1 --pretty=format:'%h - %s (%an)'", returnStdout: true).trim()
-                slackSend channel: '#30-2_snc_mizuden_bot',
+                slackSend channel: '#testing-chat-bot',
                           color: 'good',
                           message: """Build *${env.JOB_NAME} #${env.BUILD_NUMBER}* thành công! :tada:
 - Deployed to: ${env.DEPLOY_ENV}
@@ -51,7 +51,7 @@ pipeline {
         failure {
             script {
                 def commitMsg = sh(script: "git log -n 1 --pretty=format:'%h - %s (%an)'", returnStdout: true).trim()
-                slackSend channel: '#30-2_snc_mizuden_bot',
+                slackSend channel: '#testing-chat-bot',
                           color: 'danger',
                           message: """Build *${env.JOB_NAME} #${env.BUILD_NUMBER}* thất bại! :x:
 - Thời gian: ${currentBuild.durationString}
