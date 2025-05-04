@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'develop',
-                    url: 'https://github.com/roadtosgp2030/jenkins-d1.git',
+                git branch: 'main',
+                    url: 'https://github.com/roadtosgp2030/jenkins-d3.git',
                     credentialsId: 'github-credentials'
             }
         }
