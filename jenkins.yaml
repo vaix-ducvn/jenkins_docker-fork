@@ -1,0 +1,51 @@
+jenkins:
+  systemMessage: 'Jenkins configured with JCasC'
+  numExecutors: 2
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: '${JENKINS_ID}'
+          password: '${JENKINS_PASSWORD}'
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    url: '${JENKINS_URL}'
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - string:
+              id: 'slack-token'
+              secret: '${SLACK_TOKEN}'
+              description: 'Slack Bot Token'
+          - usernamePassword:
+              id: 'github-credentials'
+              username: '${GITHUB_USERNAME}'
+              password: '${GITHUB_PASSWORD}'
+              description: 'GitHub Credentials'
+
+jobs:
+  - script: >
+      pipelineJob('Initial Pipeline') {
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('https://github.com/roadtosgp2030/jenkins-d1.git')
+                  credentials('github-credentials')
+                }
+                branches('main')
+              }
+            }
+            scriptPath('Jenkinsfile')
+          }
+        }
+        description('This is the initial pipeline job created by JCasC.')
+      }
