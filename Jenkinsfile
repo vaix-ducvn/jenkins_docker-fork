@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/roadtosgp2030/jenkins-d3.git',
+                    url: 'https://github.com/roadtosgp2030/jenkins-docker.git',
                     credentialsId: 'github-credentials'
             }
         }
