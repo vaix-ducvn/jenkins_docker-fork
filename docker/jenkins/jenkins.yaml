@@ -44,7 +44,7 @@ jobs:
                 branches('main')
               }
             }
-            scriptPath('docker/jenkins/Jenkinsfile')
+            scriptPath('Jenkinsfile')
           }
         }
         description('This is the initial pipeline job created by JCasC.')
