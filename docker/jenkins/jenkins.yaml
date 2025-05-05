@@ -38,7 +38,7 @@ jobs:
             scm {
               git {
                 remote {
-                  url('https://github.com/roadtosgp2030/jenkins-docker.git')
+                  url('https://github.com/vaix-ducvn/jenkins_docker-fork.git')
                   credentials('github-credentials')
                 }
                 branches('main')

@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/roadtosgp2030/jenkins-docker.git',
+                    url: 'https://github.com/vaix-ducvn/jenkins_docker-fork.git',
                     credentialsId: 'github-credentials'
             }
         }
